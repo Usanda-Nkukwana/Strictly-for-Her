@@ -12,10 +12,10 @@
 * { box-sizing: border-box; }
 
 body {
-	min-width: 320px;
+	width: 100%;
 	min-height: 100vh;
 	margin: 0;
-	padding: 2rem 1rem;
+	padding: clamp(1rem, 5vw, 2rem) 1rem;
 	color: var(--ink);
 	background: var(--cream);
 	font-family: 'DM Sans', sans-serif;
@@ -67,6 +67,7 @@ form { display: grid; gap: 0.65rem; }
 label { margin-top: 0.75rem; font-size: 0.82rem; font-weight: 700; }
 
 input, textarea {
+	box-sizing: border-box;
 	width: 100%;
 	border: 1px solid #e3b7c3;
 	border-radius: 3px;
@@ -101,4 +102,27 @@ small { color: var(--muted); font-size: 0.75rem; }
 .submit-button span { margin-left: 0.5rem; }
 .form-status { min-height: 1.3rem; margin: 0.5rem 0 0; color: var(--rose); font-size: 0.85rem; }
 
-@media (max-width: 560px) { .form-row { grid-template-columns: 1fr; gap: 0; } }
+@media (max-width: 560px) {
+	.edit-shell { width: 100%; }
+
+	.edit-panel {
+		padding: 1.25rem;
+	}
+
+	h1 {
+		font-size: clamp(2rem, 11vw, 2.8rem);
+	}
+
+	.intro {
+		margin-bottom: 1.75rem;
+	}
+
+	.form-row {
+		grid-template-columns: 1fr;
+		gap: 0;
+	}
+
+	.submit-button {
+		width: 100%;
+	}
+}
